@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login and signup animation</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="content-card sign-in">
+      <div class="animated-background">
+        <button class="button-border"></button>
+      </div>
+      <div class="content">
+        <div class="left column">
+          <div class="text">
+            <h2>welcome back!</h2>
+            <p>
+              To keep connected with us please login with you personal info.
+            </p>
+            <button id="go-to-signIn">sign in</button>
+          </div>
+          <div class="form">
+            <h2>sign in</h2>
+
+            <p class="icons">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-google-plus-g"></a>
+              <a href="#" class="fab fa-linkedin-in"></a>
+            </p>
+            <p class="instruction">or use your email account:</p>
+            <form>
+              <div class="custom-field">
+                <label for="signup-email">
+                  <span class="fas fa-envelope"></span>
+                </label>
+                <input type="email" id="signup-email" placeholder="email" />
+              </div>
+              <div class="custom-field">
+                <label for="signup-password">
+                  <span class="fas fa-lock"></span>
+                </label>
+                <input
+                  type="password"
+                  id="signup-password"
+                  placeholder="password"
+                />
+              </div>
+              <a href="#" class="forgot-pass">forgot password?</a>
+              <button class="action-btn">sign in</button>
+            </form>
+          </div>
+        </div>
+        <div class="right column">
+          <div class="text">
+            <h2>hello, friend!</h2>
+            <p>Enter your personal details and start journey with us.</p>
+            <button id="go-to-signUp">sign up</button>
+          </div>
+          <div class="form">
+            <h2>create account</h2>
+            <p class="icons">
+              <a href="#" class="fab fa-facebook-f"></a>
+              <a href="#" class="fab fa-google-plus-g"></a>
+              <a href="#" class="fab fa-linkedin-in"></a>
+            </p>
+            <p class="instruction"> or use your email for registration:</p>
+            <form>
+              <div class="custom-field">
+                <label for="name"><span class="fas fa-user"></span></label>
+                <input type="text" id="name" placeholder="name" />
+              </div>
+              <div class="custom-field">
+                <label for="email">
+                  <span class="fas fa-envelope"></span>
+                </label>
+                <input type="email" id="email" placeholder="email" />
+              </div>
+              <div class="custom-field">
+                <label for="password">
+                  <span class="fas fa-lock"></span>
+                </label>
+                <input type="password" id="password" placeholder="password" />
+              </div>
+              <button class="action-btn">sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

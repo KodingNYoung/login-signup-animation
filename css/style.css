@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Open sans", sans-serif;
+}
+.content-card {
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px #ccc;
+  width: 90%;
+  max-width: 700px;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+/* for the background */
+.content-card .animated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background-color: #3ab397;
+  z-index: -1;
+}
+
+.content-card.sign-in .animated-background {
+  animation: swipeBgRight 0.8s ease-in-out both;
+}
+.content-card.sign-up .animated-background {
+  animation: swipeBgLeft 0.8s ease-in-out both;
+}
+/* the button border */
+.animated-background .button-border {
+  position: absolute;
+  width: 50%;
+  border: 1px solid #fff;
+  padding: 1.1rem;
+  border-radius: 30px;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  z-index: 100;
+}
+.animated-background .button-border:active {
+  padding: 1rem;
+}
+/* for the content */
+.content-card .content {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+.content-card.sign-up .left,
+.content-card.sign-in .right {
+  width: 40%;
+}
+.content-card.sign-up .right,
+.content-card.sign-in .left {
+  width: 60%;
+}
+.content-card .column {
+  transition: width 0.8s ease-out;
+}
+
+/* switching the column contents */
+/* default */
+.content-card:not(.sign-in):not(.sign-up) .right .text,
+.content-card:not(.sign-in):not(.sign-up) .left .form {
+  opacity: 0;
+  z-index: -3;
+}
+
+.content-card .form,
+.content-card .text {
+  transition: opacity 0s 0.4s ease-in;
+  position: absolute;
+}
+.content-card.sign-up .right .text,
+.content-card.sign-up .left .form,
+.content-card.sign-in .left .text,
+.content-card.sign-in .right .form {
+  opacity: 0;
+  transition: opacity 0 0.4s ease-in;
+}
+
+/* the left form animation */
+.content-card .form {
+  width: 60%;
+  z-index: -4;
+  left: 40%;
+}
+/* for the left */
+.content-card.sign-up .left .form {
+  animation: moveFormRight 0.7s ease-in-out both;
+}
+.content-card.sign-in .left .form {
+  animation: moveFormLeft 0.7s ease-in-out both,activate .7s ease-in both;
+}
+/* for the right form */
+.content-card.sign-in .right .form {
+  animation: moveFormLeft 0.7s ease-in-out both;
+}
+
+.content-card.sign-up .right .form {
+  animation: moveFormRight 0.7s ease-in-out both, activate .7s ease-in both;
+}
+
+/* text animation */
+/* left text */
+.content-card.sign-up .left .text {
+  animation: moveLeftTextRight .7s ease-out both;
+}
+.content-card.sign-in .left .text {
+  animation: moveLeftTextLeft .7s ease-out both;
+}
+/* right text */
+.content-card.sign-up .right .text {
+  animation: moveRightTextRight .7s ease-out both;
+}
+.content-card.sign-in .right .text {
+  animation: moveRightTextLeft .7s ease-out both;
+}
+/* text styles */
+.content-card .text {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  padding: 8rem 1rem 2rem;
+}
+.content-card .text h2 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+.content-card .text p {
+  padding: 15px 0 25px;
+  font-size: 0.85rem;
+  font-weight: 200;
+}
+.content-card button {
+  padding: 0.6rem ;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  outline: none;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.content-card .text button {
+  background-color: transparent;
+  color: #fff;
+  width: 50%;
+  position: absolute;
+  bottom: 30%;
+  border: none;
+}
+/* form styles */
+.content-card .form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content-card .form h2 {
+  font-size: 1.7rem;
+  text-transform: capitalize;
+}
+.right .form h2 {
+  color: #3aada3;
+}
+.left .form h2 {
+  color: #3ab397 ;
+}
+.content-card .form .icons {
+  display: flex;
+  margin: 10px auto;
+}
+.form .icons a {
+  text-decoration: none;
+  color: #000;
+  padding: 7px;
+  margin:5px;
+  box-shadow: 0px 0px 3px #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
+.content-card .form .instruction {
+  font-size: .9rem;
+  color: #999;
+  font-weight: 400;
+}
+.content-card .form form {
+  width: 80%;
+  padding: .5rem 0;
+}
+.form form .custom-field {
+  display: grid;
+  grid-template-columns: 30px auto;
+  background-color: #f2f2f2;
+  margin: 10px 0;
+  align-items: center;
+}
+.form form .custom-field input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: .7rem; 
+  font-size: 1rem;
+}
+.form form .custom-field label {
+  color: #999;
+}
+form .custom-field input::placeholder {
+  color:#999;
+  text-transform: capitalize;
+}
+.form form .forgot-pass{
+  display: block;
+  width: fit-content;
+  margin: 1rem auto 1.3rem;
+  text-decoration: none;
+  color: #000;
+  /* box-shadow: 0 1px 2px #ccc; */
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+.form form button{
+  padding: .7rem 2.5rem;
+  margin-top: .7rem;
+  background-color: #3ab397;
+  color: #fff;
+}
+@keyframes swipeBgRight {
+  0% {
+    left: 0%;
+    width: 40%;
+    background-color: #3ab397;
+  }
+  50% {
+    width: 55%;
+  }
+  100% {
+    left: 60%;
+    width: 40%;
+    background-color: #3aada3;
+  }
+}
+@keyframes swipeBgLeft {
+  100% {
+    left: 0%;
+    width: 40%;
+    background-color: #3ab397;
+  }
+  50% {
+    width: 55%;
+  }
+  0% {
+    left: 60%;
+    width: 40%;
+    background-color: #3aada3;
+  }
+}
+@keyframes moveFormRight {
+  from {
+    left: 0;
+  }
+  to {
+    left: 40%;
+  }
+}
+@keyframes moveFormLeft {
+  from {
+    left: 40%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes activate {
+  from {
+    z-index: -3;
+  }
+  90% {
+    z-index: -3;
+  }
+  100% {
+    z-index: 4;
+  }
+}
+@keyframes moveLeftTextRight {
+  from {
+    left: -10%;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes moveLeftTextLeft {
+  to {
+    left: -10%;
+    opacity: 0;
+  }
+  from {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes moveRightTextLeft {
+  from {
+    right: -10%;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+@keyframes moveRightTextRight {
+  to {
+    right: -10%;
+    opacity: 0;
+  }
+  from {
+    right: 0;
+    opacity: 1;
+  }
+}
